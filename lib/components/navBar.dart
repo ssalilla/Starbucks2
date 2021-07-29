@@ -40,14 +40,19 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       color: Colors.white,
-      child: Row(
-        children: List.generate(
-            btns.length,
-            (index) => _btn(
-                index: index,
-                selected: this.selectedIndex == index,
-                title: this.btns[index])),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: List.generate(
+              btns.length,
+              (index) => _btn(
+                  index: index,
+                  selected: this.selectedIndex == index,
+                  title: this.btns[index])),
+        ),
       ),
     );
   }

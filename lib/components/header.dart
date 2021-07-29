@@ -36,13 +36,15 @@ class Header extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "STARBUCKS",
-                style: TextStyle(
-                    color: Colors.white.withOpacity(0.08),
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold),
-              ),
+              MediaQuery.of(context).size.width > 500
+                  ? Text(
+                      "STARBUCKS",
+                      style: TextStyle(
+                          color: Colors.white.withOpacity(0.08),
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold),
+                    )
+                  : Container(),
               Row(
                 children: [
                   InkWell(
