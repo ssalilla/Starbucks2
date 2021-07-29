@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:starbucks/appTheme.dart';
+import 'package:provider/provider.dart';
+import 'package:starbucks/providers/routeProvider.dart';
 
 class Header extends StatelessWidget {
   const Header({Key? key}) : super(key: key);
@@ -20,6 +22,7 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final routeProvider = context.read<RouteProvider>();
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       height: 100,
@@ -48,7 +51,9 @@ class Header extends StatelessWidget {
               Row(
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      routeProvider.setRouteWidget(url: "cart");
+                    },
                     child: Row(
                       children: [
                         Image(
@@ -97,7 +102,9 @@ class Header extends StatelessWidget {
               type: MaterialType.transparency,
               child: InkWell(
                 borderRadius: BorderRadius.circular(10),
-                onTap: () {},
+                onTap: () {
+                  routeProvider.setRouteWidget(url: "/");
+                },
                 child: Icon(
                   Icons.home,
                   color: AppTheme.green,

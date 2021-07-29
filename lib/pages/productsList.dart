@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:starbucks/appTheme.dart';
 import 'package:starbucks/models/product.dart';
+import 'package:starbucks/providers/routeProvider.dart';
 import 'package:starbucks/utils/data.dart';
+import 'package:provider/provider.dart';
 
 class ProductsList extends StatefulWidget {
   ProductsList({Key? key}) : super(key: key);
@@ -50,6 +52,8 @@ class _ProductsListState extends State<ProductsList> {
   }
 
   Widget _itemsList({required List<Product> products, required int index}) {
+    final rProvider = context.read<RouteProvider>();
+
     return Center(
       child: Container(
         width: 1024,
@@ -63,14 +67,20 @@ class _ProductsListState extends State<ProductsList> {
                 products.length,
                 (index) => Column(
                       children: [
-                        Container(
-                          width: 200,
-                          height: 200,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(products[index].image)),
-                              shape: BoxShape.circle),
+                        InkWell(
+                          onTap: () {
+                            rProvider.setRouteWidget(
+                                url: "product", product: products[index]);
+                          },
+                          child: Container(
+                            width: 200,
+                            height: 200,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(products[index].image)),
+                                shape: BoxShape.circle),
+                          ),
                         ),
                         SizedBox(
                           height: 15,
