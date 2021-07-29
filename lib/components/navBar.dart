@@ -11,7 +11,7 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   int selectedIndex = 2;
 
-  List<String> btns = ["Promotions", "Top Up", "Beverages"];
+  List<String> btns = ["โปรโมชั่น", "เติมเงิน", "เครื่องดื่ม"];
 
   Widget _btn(
       {required int index, required bool selected, required String title}) {
