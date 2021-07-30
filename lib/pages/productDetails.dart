@@ -93,7 +93,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Amount",
+                            "จำนวน",
                             style: TextStyle(color: Colors.white),
                           ),
                           SizedBox(
@@ -110,7 +110,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             width: 5,
                           ),
                           Text(
-                            "Glasses",
+                            "แก้ว",
                             style: TextStyle(color: Colors.white),
                           ),
                         ],
@@ -123,7 +123,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Price",
+                            "ราคา",
                             style: TextStyle(color: Colors.white),
                           ),
                           SizedBox(
@@ -137,7 +137,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             width: 10,
                           ),
                           Text(
-                            "THB",
+                            "บาท",
                             style: TextStyle(color: Colors.white),
                           ),
                         ],
@@ -277,7 +277,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           AppLayout.button(
-                              title: "Cancel",
+                              title: "ยกเลืก",
                               icon: Icons.cancel,
                               onPressed: () {
                                 Navigator.pop(context);
@@ -286,13 +286,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                             width: 20,
                           ),
                           AppLayout.button(
-                              title: "Add to basket",
+                              title: "เพิ่มไปยังตะกร้า",
                               icon: Icons.check,
                               onPressed: () async {
                                 final res = await AppLayout.showconfirmDialog(
                                     context,
                                     content:
-                                        "Do you want to add this product to basekt ?");
+                                        "เพิ่มสินค้านี้ไปยังตะกร้า?");
                                 context.read<CartProvider>().addToBasket(
                                     CartItem(
                                         productId: widget.product.id,

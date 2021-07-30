@@ -26,6 +26,7 @@ final sizeGroup =
       subTitle: "18 Oz"),
 ]);
 
+
 class Data {
   static List<Product> products = [
     Product(
@@ -36,12 +37,12 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 5, title: "วิปครีม", price: 100),
-            Option(id: 6, title: "จาวาชิพ", price: 10),
-            Option(id: 7, title: "คอฟฟี่เจลลี่"),
-            Option(id: 8, title: "เฮเซลนัท"),
-            Option(id: 9, title: "วนิลา"),
-          ])
+            Option(id: 5, title: "วิปครีม", price: 30),
+            Option(id: 6, title: "จาวาชิพ", price: 30),
+            Option(id: 7, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 8, title: "เฮเซลนัท", price: 30),
+            Option(id: 9, title: "วนิลา", price: 30),
+          ]),
         ]),
     Product(
         id: 2,
@@ -51,11 +52,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 10, title: "วิปครีม"),
-            Option(id: 11, title: "จาวาชิพ"),
-            Option(id: 12, title: "คอฟฟี่เจลลี่"),
-            Option(id: 13, title: "เฮเซลนัท"),
-            Option(id: 14, title: "วนิลา"),
+            Option(id: 10, title: "วิปครีม", price: 30),
+            Option(id: 11, title: "จาวาชิพ", price: 30),
+            Option(id: 12, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 13, title: "เฮเซลนัท", price: 30),
+            Option(id: 14, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -66,11 +67,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 15, title: "วิปครีม"),
-            Option(id: 16, title: "จาวาชิพ"),
-            Option(id: 17, title: "คอฟฟี่เจลลี่"),
-            Option(id: 18, title: "เฮเซลนัท"),
-            Option(id: 19, title: "วนิลา"),
+            Option(id: 15, title: "วิปครีม", price: 30),
+            Option(id: 16, title: "จาวาชิพ", price: 30),
+            Option(id: 17, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 18, title: "เฮเซลนัท", price: 30),
+            Option(id: 19, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -81,11 +82,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 20, title: "วิปครีม"),
-            Option(id: 21, title: "จาวาชิพ"),
-            Option(id: 22, title: "คอฟฟี่เจลลี่"),
-            Option(id: 23, title: "เฮเซลนัท"),
-            Option(id: 24, title: "วนิลา"),
+            Option(id: 20, title: "วิปครีม", price: 30),
+            Option(id: 21, title: "จาวาชิพ", price: 30),
+            Option(id: 22, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 23, title: "เฮเซลนัท", price: 30),
+            Option(id: 24, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -96,11 +97,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 25, title: "วิปครีม"),
-            Option(id: 26, title: "จาวาชิพ"),
-            Option(id: 27, title: "คอฟฟี่เจลลี่"),
-            Option(id: 28, title: "เฮเซลนัท"),
-            Option(id: 29, title: "วนิลา"),
+            Option(id: 25, title: "วิปครีม", price: 30),
+            Option(id: 26, title: "จาวาชิพ", price: 30),
+            Option(id: 27, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 28, title: "เฮเซลนัท", price: 30),
+            Option(id: 29, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -111,11 +112,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 30, title: "วิปครีม"),
-            Option(id: 31, title: "จาวาชิพ"),
-            Option(id: 32, title: "คอฟฟี่เจลลี่"),
-            Option(id: 33, title: "เฮเซลนัท"),
-            Option(id: 34, title: "วนิลา"),
+            Option(id: 30, title: "วิปครีม", price: 30),
+            Option(id: 31, title: "จาวาชิพ", price: 30),
+            Option(id: 32, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 33, title: "เฮเซลนัท", price: 30),
+            Option(id: 34, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -126,11 +127,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 35, title: "วิปครีม"),
-            Option(id: 36, title: "จาวาชิพ"),
-            Option(id: 37, title: "คอฟฟี่เจลลี่"),
-            Option(id: 38, title: "เฮเซลนัท"),
-            Option(id: 39, title: "วนิลา"),
+            Option(id: 35, title: "วิปครีม", price: 30),
+            Option(id: 36, title: "จาวาชิพ", price: 30),
+            Option(id: 37, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 38, title: "เฮเซลนัท", price: 30),
+            Option(id: 39, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -141,11 +142,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 40, title: "วิปครีม"),
-            Option(id: 41, title: "จาวาชิพ"),
-            Option(id: 42, title: "คอฟฟี่เจลลี่"),
-            Option(id: 43, title: "เฮเซลนัท"),
-            Option(id: 44, title: "วนิลา"),
+            Option(id: 40, title: "วิปครีม", price: 30),
+            Option(id: 41, title: "จาวาชิพ", price: 30),
+            Option(id: 42, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 43, title: "เฮเซลนัท", price: 30),
+            Option(id: 44, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -156,11 +157,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 45, title: "วิปครีม"),
-            Option(id: 46, title: "จาวาชิพ"),
-            Option(id: 47, title: "คอฟฟี่เจลลี่"),
-            Option(id: 48, title: "เฮเซลนัท"),
-            Option(id: 49, title: "วนิลา"),
+            Option(id: 45, title: "วิปครีม", price: 30),
+            Option(id: 46, title: "จาวาชิพ", price: 30),
+            Option(id: 47, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 48, title: "เฮเซลนัท", price: 30),
+            Option(id: 49, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -171,11 +172,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 50, title: "วิปครีม"),
-            Option(id: 51, title: "จาวาชิพ"),
-            Option(id: 52, title: "คอฟฟี่เจลลี่"),
-            Option(id: 53, title: "เฮเซลนัท"),
-            Option(id: 54, title: "วนิลา"),
+            Option(id: 50, title: "วิปครีม", price: 30),
+            Option(id: 51, title: "จาวาชิพ", price: 30),
+            Option(id: 52, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 53, title: "เฮเซลนัท", price: 30),
+            Option(id: 54, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -186,11 +187,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 55, title: "วิปครีม"),
-            Option(id: 56, title: "จาวาชิพ"),
-            Option(id: 57, title: "คอฟฟี่เจลลี่"),
-            Option(id: 58, title: "เฮเซลนัท"),
-            Option(id: 59, title: "วนิลา"),
+            Option(id: 55, title: "วิปครีม", price: 30),
+            Option(id: 56, title: "จาวาชิพ", price: 30),
+            Option(id: 57, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 58, title: "เฮเซลนัท", price: 30),
+            Option(id: 59, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -201,11 +202,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 60, title: "วิปครีม"),
-            Option(id: 61, title: "จาวาชิพ"),
-            Option(id: 62, title: "คอฟฟี่เจลลี่"),
-            Option(id: 63, title: "เฮเซลนัท"),
-            Option(id: 64, title: "วนิลา"),
+            Option(id: 60, title: "วิปครีม", price: 30),
+            Option(id: 61, title: "จาวาชิพ", price: 30),
+            Option(id: 62, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 63, title: "เฮเซลนัท", price: 30),
+            Option(id: 64, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -216,11 +217,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 65, title: "วิปครีม"),
-            Option(id: 66, title: "จาวาชิพ"),
-            Option(id: 67, title: "คอฟฟี่เจลลี่"),
-            Option(id: 68, title: "เฮเซลนัท"),
-            Option(id: 69, title: "วนิลา"),
+            Option(id: 65, title: "วิปครีม", price: 30),
+            Option(id: 66, title: "จาวาชิพ", price: 30),
+            Option(id: 67, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 68, title: "เฮเซลนัท", price: 30),
+            Option(id: 69, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -231,11 +232,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 70, title: "วิปครีม"),
-            Option(id: 71, title: "จาวาชิพ"),
-            Option(id: 72, title: "คอฟฟี่เจลลี่"),
-            Option(id: 73, title: "เฮเซลนัท"),
-            Option(id: 74, title: "วนิลา"),
+            Option(id: 70, title: "วิปครีม", price: 30),
+            Option(id: 71, title: "จาวาชิพ", price: 30),
+            Option(id: 72, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 73, title: "เฮเซลนัท", price: 30),
+            Option(id: 74, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -246,11 +247,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 75, title: "วิปครีม"),
-            Option(id: 76, title: "จาวาชิพ"),
-            Option(id: 77, title: "คอฟฟี่เจลลี่"),
-            Option(id: 78, title: "เฮเซลนัท"),
-            Option(id: 79, title: "วนิลา"),
+            Option(id: 75, title: "วิปครีม", price: 30),
+            Option(id: 76, title: "จาวาชิพ", price: 30),
+            Option(id: 77, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 78, title: "เฮเซลนัท", price: 30),
+            Option(id: 79, title: "วนิลา", price: 30),
           ])
         ]),
     Product(
@@ -261,11 +262,11 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 80, title: "วิปครีม"),
-            Option(id: 81, title: "จาวาชิพ"),
-            Option(id: 82, title: "คอฟฟี่เจลลี่"),
-            Option(id: 83, title: "เฮเซลนัท"),
-            Option(id: 84, title: "วนิลา"),
+            Option(id: 80, title: "วิปครีม", price: 30),
+            Option(id: 81, title: "จาวาชิพ", price: 30),
+            Option(id: 82, title: "คอฟฟี่เจลลี่", price: 30),
+            Option(id: 83, title: "เฮเซลนัท", price: 30),
+            Option(id: 84, title: "วนิลา", price: 30),
           ])
         ]),
   ];

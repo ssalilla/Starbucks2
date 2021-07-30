@@ -107,7 +107,7 @@ class Header extends StatelessWidget {
               child: InkWell(
                 borderRadius: BorderRadius.circular(10),
                 onTap: () {
-                  Navigator.of(context).popUntil((route) => false);
+                  Navigator.of(context).popUntil((route) => route.isFirst);
                 },
                 child: Icon(
                   Icons.home,

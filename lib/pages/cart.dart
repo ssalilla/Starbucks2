@@ -4,6 +4,7 @@ import 'package:starbucks/appTheme.dart';
 import 'package:starbucks/components/customAppBar.dart';
 import 'package:provider/provider.dart';
 import 'package:starbucks/models/cartItem.dart';
+import 'package:starbucks/pages/productsList.dart';
 import 'package:starbucks/providers/cartProvider.dart';
 import 'package:starbucks/utils/data.dart';
 
@@ -110,7 +111,7 @@ class _CartScreenState extends State<CartScreen> {
           Row(
             children: [
               Text(
-                "Amount",
+                "จำนวน",
                 style: TextStyle(color: Colors.white),
               ),
               SizedBox(
@@ -121,7 +122,7 @@ class _CartScreenState extends State<CartScreen> {
                 width: 10,
               ),
               Text(
-                "Glasses",
+                "แก้ว",
                 style: TextStyle(color: Colors.white),
               ),
             ],
@@ -132,7 +133,7 @@ class _CartScreenState extends State<CartScreen> {
           Row(
             children: [
               Text(
-                "Price",
+                "ราคา",
                 style: TextStyle(color: Colors.white),
               ),
               SizedBox(
@@ -143,7 +144,7 @@ class _CartScreenState extends State<CartScreen> {
                 width: 10,
               ),
               Text(
-                "TH",
+                "บาท",
                 style: TextStyle(color: Colors.white),
               ),
             ],
@@ -174,7 +175,7 @@ class _CartScreenState extends State<CartScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "Cart",
+                      "ตะกร้าสินค้า",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
@@ -185,7 +186,7 @@ class _CartScreenState extends State<CartScreen> {
                         alignment: Alignment.center,
                         width: double.infinity,
                         child: Text(
-                          "Cart is empty",
+                          "ตะกร้ายังไม่มีสินค้า",
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
@@ -203,19 +204,22 @@ class _CartScreenState extends State<CartScreen> {
                   child: Row(
                     children: [
                       AppLayout.button(
-                          title: "Cancel",
+                          title: "ยกเลิก",
                           icon: Icons.cancel,
                           onPressed: () {}),
                       Expanded(child: Container()),
                       AppLayout.button(
-                          title: "Shop More",
+                          title: "สั่งซื้อเพิ่มเติม",
                           icon: Icons.shopping_bag,
-                          onPressed: () {}),
+                          onPressed: () {
+                            Navigator.of(context).pop(MaterialPageRoute(
+                                builder: (c) => ProductsList()));
+                          }),
                       SizedBox(
                         width: 20,
                       ),
                       AppLayout.button(
-                          title: "Confirm",
+                          title: "ตกลง",
                           icon: Icons.check,
                           onPressed: () {}),
                     ],

@@ -71,8 +71,8 @@ class _ProductsListState extends State<ProductsList> {
                                     ProductDetails(product: products[index])));
                           },
                           child: Container(
-                            width: 200,
-                            height: 200,
+                            width: 140,
+                            height: 140,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
                                     fit: BoxFit.cover,
