@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:starbucks/appTheme.dart';
+import 'package:starbucks/mainScreen.dart';
 import 'package:starbucks/pages/cart.dart';
+import 'package:provider/provider.dart';
+import 'package:starbucks/providers/cartProvider.dart';
 
 class Header extends StatelessWidget {
   const Header({Key? key}) : super(key: key);
@@ -21,6 +24,8 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cart = context.watch<CartProvider>();
+
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       height: 100,
@@ -50,7 +55,7 @@ class Header extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.of(context).push(
+                      MainScreenState.navKey.currentState?.push(
                           MaterialPageRoute(builder: (c) => CartScreen()));
                     },
                     child: Row(
@@ -62,7 +67,7 @@ class Header extends StatelessWidget {
                         SizedBox(
                           width: 5,
                         ),
-                        _cartCountWidget(4),
+                        _cartCountWidget(cart.items.length),
                       ],
                     ),
                   ),

@@ -36,8 +36,8 @@ class Data {
         optionGroups: [
           sizeGroup,
           OptionGroup(id: 2, title: "toppings", options: [
-            Option(id: 5, title: "วิปครีม"),
-            Option(id: 6, title: "จาวาชิพ"),
+            Option(id: 5, title: "วิปครีม", price: 100),
+            Option(id: 6, title: "จาวาชิพ", price: 10),
             Option(id: 7, title: "คอฟฟี่เจลลี่"),
             Option(id: 8, title: "เฮเซลนัท"),
             Option(id: 9, title: "วนิลา"),
@@ -132,7 +132,8 @@ class Data {
             Option(id: 38, title: "เฮเซลนัท"),
             Option(id: 39, title: "วนิลา"),
           ])
-        ]),Product(
+        ]),
+    Product(
         id: 8,
         title: "เครื่องดื่มที่ 8",
         image: "assets/products/8.png",
@@ -146,7 +147,8 @@ class Data {
             Option(id: 43, title: "เฮเซลนัท"),
             Option(id: 44, title: "วนิลา"),
           ])
-        ]),Product(
+        ]),
+    Product(
         id: 9,
         title: "เครื่องดื่มที่ 9",
         image: "assets/products/9.png",
@@ -266,7 +268,5 @@ class Data {
             Option(id: 84, title: "วนิลา"),
           ])
         ]),
-
-
   ];
 }

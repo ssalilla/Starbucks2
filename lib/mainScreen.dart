@@ -8,10 +8,12 @@ class MainScreen extends StatefulWidget {
   MainScreen({Key? key}) : super(key: key);
 
   @override
-  _MainScreenState createState() => _MainScreenState();
+  MainScreenState createState() => MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class MainScreenState extends State<MainScreen> {
+  static GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +35,7 @@ class _MainScreenState extends State<MainScreen> {
                       Expanded(
                           child: Center(
                               child: Navigator(
+                        key: navKey,
                         pages: [
                           MaterialPage(
                               key: ValueKey("main-screen"),
