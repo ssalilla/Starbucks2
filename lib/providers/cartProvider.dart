@@ -4,6 +4,14 @@ import 'package:starbucks/models/cartItem.dart';
 class CartProvider extends ChangeNotifier {
   List<CartItem> items = [];
 
+  int getCount() {
+    return this.items.length > 0
+        ? this
+            .items
+            .fold(0, (previousValue, element) => previousValue + element.qty)
+        : 0;
+  }
+
   void addToBasket(CartItem item) {
     final index = this.items.indexOf(item);
 
@@ -16,6 +24,11 @@ class CartProvider extends ChangeNotifier {
       this.items.add(item);
     }
 
+    notifyListeners();
+  }
+
+  void removeFromBasket(CartItem item) {
+    this.items.remove(item);
     notifyListeners();
   }
 }

@@ -67,7 +67,7 @@ class Header extends StatelessWidget {
                         SizedBox(
                           width: 5,
                         ),
-                        _cartCountWidget(cart.items.length),
+                        _cartCountWidget(cart.getCount()),
                       ],
                     ),
                   ),
