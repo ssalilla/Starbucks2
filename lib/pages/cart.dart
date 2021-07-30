@@ -4,6 +4,7 @@ import 'package:starbucks/appTheme.dart';
 import 'package:starbucks/components/customAppBar.dart';
 import 'package:provider/provider.dart';
 import 'package:starbucks/models/cartItem.dart';
+import 'package:starbucks/pages/cartConfirm.dart';
 import 'package:starbucks/pages/productsList.dart';
 import 'package:starbucks/providers/cartProvider.dart';
 import 'package:starbucks/utils/data.dart';
@@ -147,6 +148,14 @@ class _CartScreenState extends State<CartScreen> {
                 "บาท",
                 style: TextStyle(color: Colors.white),
               ),
+              IconButton(
+                  onPressed: () {
+                    context.read<CartProvider>().removeFromBasket(item);
+                  },
+                  icon: Icon(
+                    Icons.remove,
+                    color: Colors.white,
+                  ))
             ],
           ),
         ],
@@ -156,7 +165,7 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final cart = context.read<CartProvider>();
+    final cart = context.watch<CartProvider>();
     return Scaffold(
       appBar: CustomAppbar(),
       body: Center(
@@ -212,8 +221,7 @@ class _CartScreenState extends State<CartScreen> {
                           title: "สั่งซื้อเพิ่มเติม",
                           icon: Icons.shopping_bag,
                           onPressed: () {
-                            Navigator.of(context).pop(MaterialPageRoute(
-                                builder: (c) => ProductsList()));
+                            Navigator.of(context).pop();
                           }),
                       SizedBox(
                         width: 20,
@@ -221,7 +229,10 @@ class _CartScreenState extends State<CartScreen> {
                       AppLayout.button(
                           title: "ตกลง",
                           icon: Icons.check,
-                          onPressed: () {}),
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (c) => CartConfirm()));
+                          }),
                     ],
                   ),
                 )

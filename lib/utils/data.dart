@@ -4,28 +4,31 @@ import 'package:starbucks/models/product.dart';
 
 //Database
 
-final sizeGroup =
-    OptionGroup(id: 1, title: "Size", type: OptionGroupType.RADIO, options: [
-  Option(
-      id: 1,
-      title: "Tall",
-      price: 0,
-      img: "assets/size_small.png",
-      subTitle: "12 Oz"),
-  Option(
-      id: 2,
-      title: "Grande",
-      price: 20,
-      img: "assets/size_medium.png",
-      subTitle: "16 Oz"),
-  Option(
-      id: 3,
-      title: "Venti",
-      price: 30,
-      img: "assets/size_large.png",
-      subTitle: "18 Oz"),
-]);
-
+final sizeGroup = OptionGroup(
+    id: 1,
+    groupValue: 1,
+    title: "Size",
+    type: OptionGroupType.RADIO,
+    options: [
+      Option(
+          id: 1,
+          title: "Tall",
+          price: 0,
+          img: "assets/size_small.png",
+          subTitle: "12 Oz"),
+      Option(
+          id: 2,
+          title: "Grande",
+          price: 20,
+          img: "assets/size_medium.png",
+          subTitle: "16 Oz"),
+      Option(
+          id: 3,
+          title: "Venti",
+          price: 30,
+          img: "assets/size_large.png",
+          subTitle: "18 Oz"),
+    ]);
 
 class Data {
   static List<Product> products = [
@@ -43,6 +46,18 @@ class Data {
             Option(id: 8, title: "เฮเซลนัท", price: 30),
             Option(id: 9, title: "วนิลา", price: 30),
           ]),
+          OptionGroup(
+              id: 3,
+              type: OptionGroupType.RADIO,
+              groupValue: 85,
+              title: "Sweets",
+              options: [
+                Option(id: 85, title: "วิปครีม", price: 30),
+                Option(id: 86, title: "จาวาชิพ", price: 50),
+                Option(id: 87, title: "คอฟฟี่เจลลี่", price: 60),
+                Option(id: 89, title: "เฮเซลนัท", price: 30),
+                Option(id: 90, title: "วนิลา", price: 30),
+              ]),
         ]),
     Product(
         id: 2,

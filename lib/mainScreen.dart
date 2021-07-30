@@ -38,6 +38,7 @@ class MainScreenState extends State<MainScreen> {
                         key: navKey,
                         pages: [
                           MaterialPage(
+                              name: "homePage",
                               key: ValueKey("main-screen"),
                               child: ProductsList())
                         ],

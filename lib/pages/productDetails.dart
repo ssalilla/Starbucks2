@@ -24,27 +24,50 @@ class _ProductDetailsState extends State<ProductDetails> {
   double price = 0;
 
   List<Option> selectedOptions = [];
-  dynamic size = 1;
+  List<OptionGroup> radioOptions = [];
 
   @override
   void initState() {
+    widget.product.optionGroups.forEach((element) {
+      if (element.type == OptionGroupType.RADIO) {
+        radioOptions.add(element);
+      }
+    });
+
     this._calcPrice();
+
     super.initState();
   }
 
   _calcPrice() {
     double total = widget.product.price;
 
-    //Size
-    final s = widget.product.optionGroups.first.options
-        .firstWhere((element) => element.id == this.size);
+    //Groups
+    this.radioOptions.forEach((element) {
+      if (element.getGroupValueOption() != null) {
+        total += element.getGroupValueOption()!.price;
+      }
+    });
 
     this.selectedOptions.forEach((element) {
       total += element.price;
     });
 
-    this.price = (total + s.price) * qty;
+    //this.price = (total + s.price) * qty;
+    this.price = (total) * qty;
     setState(() {});
+  }
+
+  List<Option> getRadioOptions() {
+    final List<Option> options = [];
+    this.radioOptions.forEach((element) {
+      if (element.groupValue != null) {
+        options.add(element.getGroupValueOption()!);
+      }
+    });
+    //remove size option
+    options.removeAt(0);
+    return options;
   }
 
   @override
@@ -156,7 +179,6 @@ class _ProductDetailsState extends State<ProductDetails> {
                       Container(
                         padding: const EdgeInsets.all(20),
                         width: double.infinity,
-                        height: 400,
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                           border: Border.all(color: AppTheme.green, width: 2),
@@ -180,88 +202,104 @@ class _ProductDetailsState extends State<ProductDetails> {
                                         ),
                                         Wrap(
                                           children: e.options
-                                              .map((o) => e.type ==
-                                                      OptionGroupType.RADIO
-                                                  ? SizedBox(
-                                                      width: 200,
-                                                      child: RadioListTile(
-                                                          activeColor:
-                                                              Colors.white,
-                                                          title: Row(
-                                                            children: [
-                                                              if (o.img !=
-                                                                  null) ...[
-                                                                Image(
-                                                                  image:
-                                                                      AssetImage(
-                                                                          o.img!),
-                                                                  width: 35,
-                                                                ),
-                                                                SizedBox(
-                                                                  width: 10,
-                                                                )
-                                                              ],
-                                                              Column(
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Text(
-                                                                    o.title,
-                                                                    style: TextStyle(
-                                                                        color: Colors
-                                                                            .white),
-                                                                  ),
-                                                                  if (o.subTitle !=
-                                                                      null)
-                                                                    Text(
-                                                                      o.subTitle!,
-                                                                      style: TextStyle(
-                                                                          color: Colors
-                                                                              .grey
-                                                                              .shade200,
-                                                                          fontSize:
-                                                                              12),
-                                                                    ),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          value: o.id,
-                                                          groupValue: this.size,
-                                                          onChanged: (v) {
-                                                            this.size = v;
-                                                            _calcPrice();
-                                                          }),
-                                                    )
-                                                  : SizedBox(
-                                                      width: 200,
-                                                      child: CheckboxListTile(
-                                                          controlAffinity:
-                                                              ListTileControlAffinity
-                                                                  .leading,
-                                                          title: Text(
-                                                            o.title,
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .white),
-                                                          ),
-                                                          value: this
-                                                              .selectedOptions
-                                                              .contains(o),
-                                                          onChanged: (v) {
-                                                            if (v! == true) {
-                                                              this
-                                                                  .selectedOptions
-                                                                  .add(o);
-                                                            } else {
-                                                              this
-                                                                  .selectedOptions
-                                                                  .remove(o);
-                                                            }
-                                                            _calcPrice();
-                                                          }),
-                                                    ))
+                                              .map(
+                                                  (o) =>
+                                                      e.type ==
+                                                              OptionGroupType
+                                                                  .RADIO
+                                                          ? SizedBox(
+                                                              width: 200,
+                                                              child:
+                                                                  RadioListTile(
+                                                                      activeColor:
+                                                                          Colors
+                                                                              .white,
+                                                                      title:
+                                                                          Row(
+                                                                        children: [
+                                                                          if (o.img !=
+                                                                              null) ...[
+                                                                            Image(
+                                                                              image: AssetImage(o.img!),
+                                                                              width: 35,
+                                                                            ),
+                                                                            SizedBox(
+                                                                              width: 10,
+                                                                            )
+                                                                          ],
+                                                                          Column(
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children: [
+                                                                              Text(
+                                                                                o.title,
+                                                                                style: TextStyle(color: Colors.white),
+                                                                              ),
+                                                                              if (o.subTitle != null)
+                                                                                Text(
+                                                                                  o.subTitle!,
+                                                                                  style: TextStyle(color: Colors.grey.shade200, fontSize: 12),
+                                                                                ),
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      value:
+                                                                          o.id,
+                                                                      groupValue: this
+                                                                          .radioOptions
+                                                                          .firstWhere((element) =>
+                                                                              element.id ==
+                                                                              e
+                                                                                  .id)
+                                                                          .groupValue,
+                                                                      onChanged:
+                                                                          (v) {
+                                                                        if (v
+                                                                            is int) {
+                                                                          final index = this.radioOptions.indexWhere((el) =>
+                                                                              el.id ==
+                                                                              e.id);
+                                                                          this.radioOptions[index] = this
+                                                                              .radioOptions[index]
+                                                                              .copyWith(groupValue: v);
+                                                                        }
+                                                                        _calcPrice();
+                                                                      }),
+                                                            )
+                                                          : SizedBox(
+                                                              width: 200,
+                                                              child:
+                                                                  CheckboxListTile(
+                                                                      controlAffinity:
+                                                                          ListTileControlAffinity
+                                                                              .leading,
+                                                                      title:
+                                                                          Text(
+                                                                        o.title,
+                                                                        style: TextStyle(
+                                                                            color:
+                                                                                Colors.white),
+                                                                      ),
+                                                                      value: this
+                                                                          .selectedOptions
+                                                                          .contains(
+                                                                              o),
+                                                                      onChanged:
+                                                                          (v) {
+                                                                        if (v! ==
+                                                                            true) {
+                                                                          this
+                                                                              .selectedOptions
+                                                                              .add(o);
+                                                                        } else {
+                                                                          this
+                                                                              .selectedOptions
+                                                                              .remove(o);
+                                                                        }
+                                                                        _calcPrice();
+                                                                      }),
+                                                            ))
                                               .toList(),
                                         )
                                       ],
@@ -291,17 +329,19 @@ class _ProductDetailsState extends State<ProductDetails> {
                               onPressed: () async {
                                 final res = await AppLayout.showconfirmDialog(
                                     context,
-                                    content:
-                                        "เพิ่มสินค้านี้ไปยังตะกร้า?");
+                                    content: "เพิ่มสินค้านี้ไปยังตะกร้า?");
                                 context.read<CartProvider>().addToBasket(
-                                    CartItem(
-                                        productId: widget.product.id,
-                                        price: this.price,
-                                        qty: this.qty,
-                                        size: size,
-                                        name: widget.product.title,
-                                        unitPrice: this.price,
-                                        options: [...this.selectedOptions]));
+                                        CartItem(
+                                            productId: widget.product.id,
+                                            price: this.price,
+                                            qty: this.qty,
+                                            size: this.radioOptions.first.id,
+                                            name: widget.product.title,
+                                            unitPrice: this.price,
+                                            options: [
+                                          ...this.selectedOptions,
+                                          ...this.getRadioOptions()
+                                        ]));
                                 if (res == true) {
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (c) => CartScreen()));

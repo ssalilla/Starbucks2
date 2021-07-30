@@ -55,8 +55,12 @@ class Header extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
+                      MainScreenState.navKey.currentState
+                          ?.popUntil((route) => route.isFirst);
                       MainScreenState.navKey.currentState?.push(
-                          MaterialPageRoute(builder: (c) => CartScreen()));
+                          MaterialPageRoute(
+                              builder: (c) => CartScreen(),
+                              settings: RouteSettings(name: "cart")));
                     },
                     child: Row(
                       children: [
@@ -107,7 +111,8 @@ class Header extends StatelessWidget {
               child: InkWell(
                 borderRadius: BorderRadius.circular(10),
                 onTap: () {
-                  Navigator.of(context).popUntil((route) => route.isFirst);
+                  MainScreenState.navKey.currentState!
+                      .popUntil((route) => route.isFirst);
                 },
                 child: Icon(
                   Icons.home,

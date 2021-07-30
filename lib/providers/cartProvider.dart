@@ -3,6 +3,7 @@ import 'package:starbucks/models/cartItem.dart';
 
 class CartProvider extends ChangeNotifier {
   List<CartItem> items = [];
+  double totalPrice = 0;
 
   int getCount() {
     return this.items.length > 0
@@ -10,6 +11,13 @@ class CartProvider extends ChangeNotifier {
             .items
             .fold(0, (previousValue, element) => previousValue + element.qty)
         : 0;
+  }
+
+  _calcPrice() {
+    this.totalPrice = 0;
+    this.items.forEach((element) {
+      totalPrice += element.price;
+    });
   }
 
   void addToBasket(CartItem item) {
@@ -23,12 +31,17 @@ class CartProvider extends ChangeNotifier {
     } else {
       this.items.add(item);
     }
+    _calcPrice();
 
     notifyListeners();
   }
 
   void removeFromBasket(CartItem item) {
-    this.items.remove(item);
+    final t =
+        this.items.firstWhere((element) => element.productId == item.productId);
+    items.remove(t);
+    _calcPrice();
+
     notifyListeners();
   }
 }
