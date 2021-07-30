@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:starbucks/appTheme.dart';
 import 'package:starbucks/models/product.dart';
-import 'package:starbucks/providers/routeProvider.dart';
+import 'package:starbucks/pages/productDetails.dart';
 import 'package:starbucks/utils/data.dart';
-import 'package:provider/provider.dart';
 
 class ProductsList extends StatefulWidget {
   ProductsList({Key? key}) : super(key: key);
@@ -52,8 +51,6 @@ class _ProductsListState extends State<ProductsList> {
   }
 
   Widget _itemsList({required List<Product> products, required int index}) {
-    final rProvider = context.read<RouteProvider>();
-
     return Center(
       child: Container(
         width: 1024,
@@ -69,8 +66,9 @@ class _ProductsListState extends State<ProductsList> {
                       children: [
                         InkWell(
                           onTap: () {
-                            rProvider.setRouteWidget(
-                                url: "product", product: products[index]);
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (c) =>
+                                    ProductDetails(product: products[index])));
                           },
                           child: Container(
                             width: 200,

@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:starbucks/providers/cartProvider.dart';
 
 import 'mainScreen.dart';
-import 'providers/routeProvider.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +14,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => RouteProvider()),
         ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: MaterialApp(

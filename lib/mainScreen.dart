@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:starbucks/appTheme.dart';
-import 'package:starbucks/components/customAppBar.dart';
 import 'package:starbucks/components/header.dart';
 import 'package:starbucks/components/navBar.dart';
-import 'package:provider/provider.dart';
 import 'package:starbucks/pages/productsList.dart';
-import 'package:starbucks/providers/routeProvider.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({Key? key}) : super(key: key);
@@ -15,12 +12,8 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  String routeName = "/";
-
   @override
   Widget build(BuildContext context) {
-    Widget routeWidget = context.watch<RouteProvider>().currentRouteWidget;
-
     return Scaffold(
       backgroundColor: AppTheme.backgroundColor,
       body: Column(
@@ -37,9 +30,18 @@ class _MainScreenState extends State<MainScreen> {
                           image: AssetImage("assets/background.png"))),
                   child: Column(
                     children: [
-                      if (routeWidget.runtimeType != ProductsList)
-                        CustomAppbar(),
-                      Expanded(child: Center(child: routeWidget)),
+                      Expanded(
+                          child: Center(
+                              child: Navigator(
+                        pages: [
+                          MaterialPage(
+                              key: ValueKey("main-screen"),
+                              child: ProductsList())
+                        ],
+                        onPopPage: (i, r) {
+                          return true;
+                        },
+                      ))),
                     ],
                   )))
         ],
