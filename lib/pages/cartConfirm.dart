@@ -30,12 +30,12 @@ class CartConfirm extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "hi",
+                    "ราคารวม:       " ,
                     style: TextStyle(color: Colors.white),
                   ),
-                  AppLayout.staticField(content: "    $totalPrice    "),
+                  AppLayout.staticField(content: " $totalPrice    "),
                   Text(
-                    "hi",
+                    "        บาท",
                     style: TextStyle(color: Colors.white),
                   ),
                 ],
@@ -46,8 +46,8 @@ class CartConfirm extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  AppLayout.button(title: "hi", onPressed: () {}),
-                  AppLayout.button(title: "hi", onPressed: () {}),
+                  AppLayout.button(title: "จ่ายด้วยบัตร", onPressed: () {}),
+                  AppLayout.button(title: "จ่ายด้วยเงินสด", onPressed: () {}),
                 ],
               ),
             ),
