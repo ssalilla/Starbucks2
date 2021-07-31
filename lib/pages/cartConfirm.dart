@@ -47,6 +47,7 @@ class CartConfirm extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   AppLayout.button(title: "จ่ายด้วยบัตร", onPressed: () {}),
+                  SizedBox(width: 10,),
                   AppLayout.button(title: "จ่ายด้วยเงินสด", onPressed: () {}),
                 ],
               ),

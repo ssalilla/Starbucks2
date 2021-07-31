@@ -212,10 +212,6 @@ class _CartScreenState extends State<CartScreen> {
                   width: 1024,
                   child: Row(
                     children: [
-                      AppLayout.button(
-                          title: "ยกเลิก",
-                          icon: Icons.cancel,
-                          onPressed: () {}),
                       Expanded(child: Container()),
                       AppLayout.button(
                           title: "สั่งซื้อเพิ่มเติม",
