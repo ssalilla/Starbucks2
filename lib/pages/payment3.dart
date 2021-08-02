@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:starbucks/appLayout.dart';
 import 'package:starbucks/appTheme.dart';
 import 'package:starbucks/components/customAppBar.dart';
-import 'package:provider/provider.dart';
-import 'package:starbucks/pages/payment1.dart';
-import 'package:starbucks/providers/cartProvider.dart';
+import 'package:starbucks/mainScreen.dart';
+import 'package:starbucks/pages/payment4.dart';
 
-class CartConfirm extends StatelessWidget {
-  const CartConfirm({Key? key}) : super(key: key);
+class Payment3 extends StatelessWidget {
+  const Payment3({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final totalPrice = context.read<CartProvider>().totalPrice;
     return Scaffold(
       appBar: CustomAppbar(),
       body: Center(
@@ -31,13 +29,11 @@ class CartConfirm extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "ราคารวม:       " ,
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  AppLayout.staticField(content: " $totalPrice    "),
-                  Text(
-                    "        บาท",
-                    style: TextStyle(color: Colors.white),
+                    "กรุณารับบัตรคิวและเงินทอน" ,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
@@ -47,14 +43,17 @@ class CartConfirm extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AppLayout.button(title: "จ่ายด้วยบัตร", onPressed: () {}),
-                  AppLayout.button(title: "จ่ายด้วยเงินสด", onPressed: () {
+                  AppLayout.button(title: "ยกเลิก", onPressed: () {
+                    MainScreenState.navKey.currentState!
+                        .popUntil((route) => route.isFirst);
+                  }),
+                  AppLayout.button(title: "ยินยัน", onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            Payment1(),
-                      ));},),
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              Payment4(),
+                        ));},),
                 ],
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:starbucks/models/option.dart';
 import 'package:starbucks/models/optionGroup.dart';
+import 'package:starbucks/models/payments.dart';
 import 'package:starbucks/models/product.dart';
 
 //Database
@@ -432,5 +433,24 @@ class Data {
                 Option(id: 148, title: "ไม่หวาน", price: 0),
               ]),
         ]),
+  ];
+
+  static List<Payment> payment = [
+    Payment(
+      id: 1,
+      title: "กรุณาใส่เงิน",
+    ),
+    Payment(
+      id: 2,
+      title: "ระบบกำลังตรวจนับเงิน",
+    ),
+    Payment(
+      id: 3,
+      title: "กรุณารับบัตรคิวและเงินทอน",
+    ),
+    Payment(
+      id: 4,
+      title: "ขอบคุณที่ใช้บริการ",
+    ),
   ];
 }
